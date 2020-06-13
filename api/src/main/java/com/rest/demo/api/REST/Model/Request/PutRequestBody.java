@@ -1,4 +1,4 @@
-package com.rest.demo.api.REST.Model;
+package com.rest.demo.api.REST.Model.Request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -10,8 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetResponseBody {
-
-    @JsonProperty("response")
-    private String response;
+public class PutRequestBody {
+    @JsonProperty("request")
+    private String request;
 }

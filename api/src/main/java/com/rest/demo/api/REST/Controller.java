@@ -1,6 +1,6 @@
 package com.rest.demo.api.REST;
 
-import com.rest.demo.api.REST.Model.GetRequestBody;
+import com.rest.demo.api.REST.Model.Request.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -32,6 +32,30 @@ public class Controller {
     @RequestMapping(method = RequestMethod.GET, path = "/get/body")
     public HttpEntity<String> getExampleBody(@RequestBody GetRequestBody requestBody){
         return new HttpEntity(objectToJson.convert(handler.GetBody(requestBody)));
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(method = RequestMethod.POST, path = "/post")
+    public HttpEntity<String> postExampleBody(@RequestBody PostRequestBody requestBody){
+        return new HttpEntity(objectToJson.convert(handler.PostBody(requestBody)));
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(method = RequestMethod.PUT, path = "/put")
+    public HttpEntity<String> putExampleBody(@RequestBody PutRequestBody requestBody){
+        return new HttpEntity(objectToJson.convert(handler.PutBody(requestBody)));
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(method = RequestMethod.PATCH, path = "/patch")
+    public HttpEntity<String> patchExampleBody(@RequestBody PatchRequestBody requestBody){
+        return new HttpEntity(objectToJson.convert(handler.PatchBody(requestBody)));
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(method = RequestMethod.DELETE, path = "/delete")
+    public HttpEntity<String> deleteExampleBody(@RequestBody DeleteRequestBody requestBody){
+        return new HttpEntity(objectToJson.convert(handler.DeleteBody(requestBody)));
     }
 
 }
